@@ -32,9 +32,9 @@ LayoutContent.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const UnauthenticatedLayout = ({ children, ...props }) => {
+const UnauthenticatedLayout = ({ children }) => {
   return (
-    <div {...props}>
+    <div>
       <Flex as="header" justifyContent="flex-end">
         <Box paddingTop={6} paddingRight={8}>
           <LocaleToggle />

@@ -26,6 +26,7 @@ import UnauthenticatedLayout, {
 } from '../../../../layouts/UnauthenticatedLayout';
 import Logo from '../../../../components/UnauthenticatedLogo';
 import FieldActionWrapper from '../FieldActionWrapper';
+import registerBackground from '../../../../assets/home_screenshot.jpg';
 
 const CenteredBox = styled(Box)`
   text-align: center;
@@ -39,6 +40,20 @@ const PasswordInput = styled(TextInput)`
   ::-ms-reveal {
     display: none;
   }
+`;
+
+const Background = () => (
+  <div style={{ zIndex: -1, width: '100%', height: '100%', position: 'absolute', top: 0 }}>
+    <img
+      src={registerBackground}
+      alt="register-background"
+      style={{ height: '100%', width: '100%', objectFit: 'cover', filter: 'blur(15px)' }}
+    />
+  </div>
+);
+
+const CustomLayout = styled(UnauthenticatedLayout)`
+  position: relative;
 `;
 
 const Register = ({ fieldsToDisable, noSignin, onSubmit, schema }) => {
@@ -84,7 +99,9 @@ const Register = ({ fieldsToDisable, noSignin, onSubmit, schema }) => {
   }, [registrationToken]);
 
   return (
-    <UnauthenticatedLayout>
+    // <Background>
+    <CustomLayout>
+      <Background />
       <LayoutContent>
         <Formik
           enableReinitialize
@@ -330,7 +347,8 @@ const Register = ({ fieldsToDisable, noSignin, onSubmit, schema }) => {
           </Box>
         )}
       </LayoutContent>
-    </UnauthenticatedLayout>
+    </CustomLayout>
+    // </Background>
   );
 };
 

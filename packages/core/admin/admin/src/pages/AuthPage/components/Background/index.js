@@ -8,7 +8,7 @@ const Img = styled.img`
   width: 100%;
   object-fit: cover;
   object-position: left top;
-  filter: blur(0.1rem);
+  filter: blur(0.07vw);
   position: fixed;
   top: 0;
   z-index: -1;
